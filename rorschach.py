@@ -117,7 +117,7 @@ class Rorshach():
             rbg, gbg, bbg = random_colors(self.image.max_color-50, self.image.max_color)
             # Randomly choose one color to keep, cull the rest
             if random.randint(1, 3) == 1:
-                gbg, bbg = rbg,     # 'Red' got picked
+                gbg, bbg = rbg, rbg     # 'Red' got picked
             elif random.randint(1, 2) == 2:
                 bbg, rbg = gbg, gbg # 'Blue' got picked
             else:
@@ -136,6 +136,7 @@ class Rorshach():
                     # New random color each time for rainbow mode
                     if self.rainbow:
                         r, g, b = random_colors(self.image.min_color, self.image.max_color-50)
+                        r, g, b = format_colors(r, g, b)
                 # ...Otherwise it's a bg tile
                 else:
                     y[j] = '{} {} {}'.format(rbg, gbg, bbg)
@@ -147,7 +148,7 @@ class Rorshach():
 
         self.random_pattern()
 
-        if self.image.mode == '256':
+        if self.image.mode == '256' or self.rainbow or self.colored_bgs:
             self.colorize_ppm()
             self.scale_pattern()
             save_image(self.image, p_type='P3', colors=self.image.max_color)
