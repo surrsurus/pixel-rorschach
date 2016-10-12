@@ -140,7 +140,7 @@ class Rorshach():
                 else:
                     y[j] = '{} {} {}'.format(rbg, gbg, bbg)
 
-            self.ppm_data[i] = y
+            self.image.ppm_data[i] = y
 
     def make_image(self):
         ''' Wrapper for making images based on color mode '''
