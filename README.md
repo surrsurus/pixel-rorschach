@@ -1,6 +1,17 @@
 # pixel-rorschach
 
-Generate a variety of 8-bit style rorschach-esque images
+![Rorschach GIF](https://github.com/surrsurus/pixel-rorschach/blob/master/examples/rorschach.gif)
+
+Generate a variety of 8-bit style rorschach-esque images.
+
+# Output
+
+Images are generated as `.ppm` files, but they can be converted to jpgs:
+
+```sh
+brew install netpbm
+pnmtojpeg rorschach.ppm > img.jpg
+```
 
 # Usage
 
